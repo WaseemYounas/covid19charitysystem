@@ -94,5 +94,38 @@ namespace Covid19CharitySystem.BL
             new UserDAL().DeleteDonation(_id);
         }
         #endregion
+
+        #region Task
+        public List<Task> getTaskList()
+        {
+            return new UserDAL().getTasksList();
+        }
+
+        public Task getTaskById(int _id)
+        {
+            return new UserDAL().getTaskById(_id);
+        }
+
+        public bool AddTask(Task _Task)
+        {
+            _Task.CreatedAt = DateTime.Now;
+            //if (_Task.Name == null || _Task.Email == null || _Task.Password == null || _Task.Phone == null || _Task.Address == null)
+            //    return false;
+            return new UserDAL().AddTask(_Task);
+        }
+
+        public bool UpdateTask(Task _Task)
+        {
+            _Task.CreatedAt = DateTime.Now;
+            //if (_Task.Name == null || _Task.Email == null || _Task.Password == null || _Task.Phone == null || _Task.Address == null)
+            //    return false;
+
+            return new UserDAL().UpdateTask(_Task);
+        }
+        public void DeleteTask(int _id)
+        {
+            new UserDAL().DeleteTask(_id);
+        }
+        #endregion
     }
 }

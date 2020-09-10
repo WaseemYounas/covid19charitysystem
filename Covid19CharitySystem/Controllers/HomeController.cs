@@ -51,7 +51,7 @@ namespace Covid19CharitySystem.Controllers
             }
             else if(sp != null && sp.Role == 3)
             {
-                Session["DonorId"] = sp.Id;
+                Session["volunteerId"] = sp.Id;
                 Session["Name"] = sp.Name;
                 Session["Role"] = sp.Role;
                 return RedirectToAction("Index", "Volunteer");

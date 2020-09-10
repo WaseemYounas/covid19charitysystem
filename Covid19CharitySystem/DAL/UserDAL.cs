@@ -121,5 +121,58 @@ namespace Covid19CharitySystem.DAL
             }
         }
         #endregion
+
+        #region Task
+        public List<Task> getTasksList()
+        {
+            List<Task> Tasks;
+            using (CharitySystemDBContext db = new CharitySystemDBContext())
+            {
+                Tasks = db.Task.ToList();
+            }
+
+            return Tasks;
+        }
+
+        public Task getTaskById(int _Id)
+        {
+            Task Task;
+            using (CharitySystemDBContext db = new CharitySystemDBContext())
+            {
+                Task = db.Task.FirstOrDefault(x => x.Id == _Id);
+            }
+
+            return Task;
+        }
+
+        public bool AddTask(Task _Task)
+        {
+            using (CharitySystemDBContext db = new CharitySystemDBContext())
+            {
+                db.Task.Add(_Task);
+                db.SaveChanges();
+            }
+            return true;
+        }
+
+        public bool UpdateTask(Task _Task)
+        {
+            using (CharitySystemDBContext db = new CharitySystemDBContext())
+            {
+                db.Entry(_Task).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return true;
+        }
+
+        public void DeleteTask(int _id)
+        {
+            using (CharitySystemDBContext db = new CharitySystemDBContext())
+            {
+                db.Task.Remove(db.Task.FirstOrDefault(x => x.Id == _id));
+                db.SaveChanges();
+            }
+        }
+        #endregion
     }
 }

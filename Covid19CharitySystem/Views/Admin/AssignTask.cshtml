@@ -37,7 +37,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="@Url.Action("PostDonation","Donor")" method="post">
+                        <form action="@Url.Action("PostTask","Admin")" method="post">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -53,14 +53,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="IsActive" value="" />
+                                    <input type="hidden" name="IsActive" value="1" />
                                     <input type="hidden" name="CreatedAt" value="@DateTime.Now" />
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label>Pick Up Location</label>
-                                            <input type="text" class="form-control" name="PickLocation" placeholder="Enter ...">
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
